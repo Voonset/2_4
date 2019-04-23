@@ -59,7 +59,7 @@ int main(){
 	printf("Enter the coordinates for second vecotr:\n");
 	scanf("%d %d %d",&i,&j,&k);
 	vector v2;
-	v1.set(i,j,k);
+	v2.set(i,j,k);
 	printf("Do you want 1) Sum up or 2) Assign 3) Cancel?\n");
 	scanf("%d",&kl);
 	switch(kl){
