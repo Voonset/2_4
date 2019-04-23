@@ -1,1 +1,84 @@
+#include <iostream>
 
+class vector {
+	int x,y,z;
+	public:
+		void set(int , int , int );
+		vector operator + (vector t);
+		vector operator = (vector t);
+		int showx(void);
+		int showy(void);
+		int showz(void);
+		void show (void);
+};
+
+void vector :: set(int i, int j, int k){
+	x = i; y = j; z = k;
+	printf("You set vector with coordinates (%d;%d;%d)\n",x, y, z);
+}
+
+vector vector :: operator + ( vector t ){
+	vector l;
+	l.x = x + t.x;
+	l.y = y + t.y;
+	l.z = z + t.z;
+	return l;
+}
+
+vector vector :: operator = ( vector t ){
+	x = t.x;
+	y = t.y;
+	z = t.z;
+	return *this;
+}
+
+int vector :: showx(void){
+	return x;
+}
+
+int vector :: showy(void){
+	return y;
+}
+
+int vector :: showz(void){
+	return z;
+}
+
+void vector :: show(void){
+	std :: cout << x << ";" << y << ";" << z <<"\n";
+}
+
+int main(){
+	int i,j,k;
+	printf("Enter the coordinates for first vecotr:\n");
+	scanf("%d %d %d",&i,&j,&k);
+	vector v1;
+	v1.set(i,j,k);
+	int kl;
+	do{
+	printf("Enter the coordinates for second vecotr:\n");
+	scanf("%d %d %d",&i,&j,&k);
+	vector v2;
+	v1.set(i,j,k);
+	printf("Do you want 1) Sum up or 2) Assign 3) Cancel?\n");
+	scanf("%d",&kl);
+	switch(kl){
+		
+		case 1:{
+			v1 = v1 + v2;
+		//	printf("New vector : (%d;%d;%d)\n",v1.showx(),v1.showy(),v1.showz() );
+			v1.show();
+			break;
+		}
+		
+		case 2:{
+			v1 = v2;
+			printf("New vector : (%d;%d;%d)\n",v1.showx(),v1.showy(),v1.showz() );
+			break;
+		}
+		
+	}
+	printf("New operation with this vecotr? 1) Yes 2) No \n");
+	scanf("%d",&kl);
+	}while ( kl != 2);
+}
