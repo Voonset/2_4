@@ -36,9 +36,15 @@ int string::anl(void){
 }
 
 void string::run(void){
-	if ( len > 5 ){
-		for (int i = 0 ; i < len ; i++) if ( s[i] == '.') s[i] = ' ';
-	}else printf("Length less then 5\n");
+	if ( len > 5 ) {
+		for (int i = 0 ; i < len ; i++) if ( s[i] == '.') {
+			for ( int j = i ; j < len ; j++ ) {
+			s[j] = s[j+1];
+			}
+		}
+	}
+	else printf("Length less then 5\n");
+	len = strlen(s);
 }
 
 int string::start(void){
